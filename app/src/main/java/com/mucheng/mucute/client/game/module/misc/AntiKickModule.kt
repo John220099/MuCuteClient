@@ -5,6 +5,7 @@ import com.mucheng.mucute.client.game.Module
 import com.mucheng.mucute.client.game.ModuleCategory
 import org.cloudburstmc.protocol.bedrock.packet.BedrockPacket
 import org.cloudburstmc.protocol.bedrock.packet.DisconnectPacket
+import org.cloudburstmc.protocol.bedrock.data.DisconnectFailReason
 
 class AntiKickModule : Module("AntiKick", ModuleCategory.Misc) {
 
@@ -15,7 +16,7 @@ override fun afterPacketBound(packet: BedrockPacket) {
     
     val packet = BedrockPacket
     
-    if (packet is DisconnectPacket && disconnectPacketValue) {
+    if (packet is DisconnectPacket && DisconnectFailReason) {
         return 
         }         
     } 
