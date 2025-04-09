@@ -5,6 +5,7 @@ import com.mucheng.mucute.client.game.InterruptiblePacketHandler
 import com.mucheng.mucute.client.game.Module
 import com.mucheng.mucute.client.game.ModuleCategory
 import org.cloudburstmc.protocol.bedrock.packet.DisconnectPacket
+import kotlin.Boolean
 
 class AntiKickModule : Module("AntiKick", ModuleCategory.Misc) {
 
