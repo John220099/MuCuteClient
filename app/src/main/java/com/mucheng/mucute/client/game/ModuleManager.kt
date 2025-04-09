@@ -76,7 +76,6 @@ import com.mucheng.mucute.client.game.module.visual.PositionDisplayModule
 import com.mucheng.mucute.client.game.module.visual.SpeedDisplayModule
 import com.mucheng.mucute.client.game.module.visual.WorldStateModule
 import com.mucheng.mucute.client.game.module.visual.ZoomModule
-import com.mucheng.mucute.client.game.module.misc.AntiKickModule
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.buildJsonObject
@@ -96,7 +95,6 @@ object ModuleManager {
 
     init {
         with(_modules) {
-            add(AntiKickModule())
             add(CriticModule()) 
             add(CrasherModule()) 
             add(CrashModule())
