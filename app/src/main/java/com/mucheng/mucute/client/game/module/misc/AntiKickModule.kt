@@ -8,12 +8,12 @@ import org.cloudburstmc.protocol.bedrock.packet.DisconnectPacket
 
 class AntiKickModule : Module("AntiKick", ModuleCategory.Misc) {
 
-override fun beforeClientBound(interceptablePacket: InterceptablePacket): Boolean {
-    if (!isEnabled) return false 
+override fun beforePacketBound(interceptablePacket: InterceptablePacket): Boolean {
+    if (!isEnabled) return 
     
     val packet = interceptablePacket.packet
     
-    if (packet is DisconnectPacket && DisconnectFailReason) {
+    if (packet is DisconnectPacket) {
         return false 
         } else {
         return true
