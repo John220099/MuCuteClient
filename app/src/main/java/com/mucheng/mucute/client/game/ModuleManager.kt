@@ -6,6 +6,7 @@ import android.net.Uri
 import com.mucheng.mucute.client.application.AppContext
 import com.mucheng.mucute.client.game.module.combat.AntiCrystalModule
 import com.mucheng.mucute.client.game.module.combat.AntiKnockbackModule
+import com.mucheng.mucute.client.game.module.combat.CriticModule
 import com.mucheng.mucute.client.game.module.combat.CrystalSmashModule
 import com.mucheng.mucute.client.game.module.combat.HitAndRunModule
 import com.mucheng.mucute.client.game.module.combat.HitboxModule
@@ -41,6 +42,8 @@ import com.mucheng.mucute.client.game.module.effect.VillageHeroModule
 import com.mucheng.mucute.client.game.module.effect.WeaknessModule
 import com.mucheng.mucute.client.game.module.effect.WitherModule
 import com.mucheng.mucute.client.game.module.misc.CommandHandlerModule
+import com.mucheng.mucute.client.game.module.misc.CrasherModule
+import com.mucheng.mucute.client.game.module.misc.CrashModule
 import com.mucheng.mucute.client.game.module.misc.DesyncModule
 import com.mucheng.mucute.client.game.module.misc.FakeDeathModule
 import com.mucheng.mucute.client.game.module.misc.FakeXPModule
@@ -94,6 +97,9 @@ object ModuleManager {
     init {
         with(_modules) {
             add(AntiKickModule())
+            add(CriticModule()) 
+            add(CrasherModule()) 
+            add(CrashModule())
             add(FlyModule())
             add(ZoomModule())
             add(AirJumpModule())
