@@ -1,4 +1,4 @@
-## MuCuteClient : An Utility Client for Android
+## MuCuteClient : A Utility Client for Android
 
 <img src="images/logo.png" alt="Logo" width="30%" />
 
