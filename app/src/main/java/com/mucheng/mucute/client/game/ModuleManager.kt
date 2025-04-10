@@ -4,6 +4,7 @@ package com.mucheng.mucute.client.game
 import android.content.Context
 import android.net.Uri
 import com.mucheng.mucute.client.application.AppContext
+import com.mucheng.mucute.client.game.module.misc.AntiDisconnectModule
 import com.mucheng.mucute.client.game.module.combat.AntiCrystalModule
 import com.mucheng.mucute.client.game.module.combat.AntiKnockbackModule
 import com.mucheng.mucute.client.game.module.combat.CriticModule
@@ -95,6 +96,7 @@ object ModuleManager {
 
     init {
         with(_modules) {
+            add(AntiDisconnectModule())
             add(CriticModule()) 
             add(CrasherModule()) 
             add(CrashModule())
