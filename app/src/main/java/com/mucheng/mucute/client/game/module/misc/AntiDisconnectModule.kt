@@ -8,7 +8,11 @@ import org.cloudburstmc.protocol.bedrock.packet.DisconnectPacket
 
 class AntiDisconnectModule : Module("AntiDisconnect", ModuleCategory.Misc) {
 
-    override fun beforePacketBound(interceptablePacket: InterceptablePacket) {
+    override fun beforePacketBound(interceptablePacket: InterceptablePacket) { 
+        if (!isEnabled) {
+            return
+        }
+
         val packet = interceptablePacket.packet
         if (packet is PlayerAuthInputPacket) {
             if (packet is DisconnectPacket) {
