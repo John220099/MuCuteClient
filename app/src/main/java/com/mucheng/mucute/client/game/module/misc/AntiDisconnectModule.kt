@@ -8,10 +8,10 @@ import org.cloudburstmc.protocol.bedrock.packet.TransferPacket
 
 class AntiDisconnectModule : Module("AntiDisconnect", ModuleCategory.Misc) {
 
-    private val BlockDisconnectPacket by boolValue("Block_DisconnectPacket", false)
+    private val BlockDisconnectPacket by boolValue("Block_DisconnectPacket", true)
     private val BlockTransferPacket by boolValue("Block_TransferPacket", false)
 
-    override fun beforePacketBound(interceptablePacket: InterceptablePacket) { 
+    override fun beforePacketBound(interceptablePacket: InterceptablePacket): Boolean { 
         if (!isEnabled) {
             return
         }
@@ -19,13 +19,13 @@ class AntiDisconnectModule : Module("AntiDisconnect", ModuleCategory.Misc) {
             if (packet is DisconnectPacket) {
             if (BlockDisconnectPacket) {
                 interceptablePacket.intercept()
-                return
+                return false
             }
         }
             if (packet is TransferPacket) {
             if (BlockTransferPacket) {
                 interceptablePacket.intercept()
-                return
+                return false
             }
         }
     }
