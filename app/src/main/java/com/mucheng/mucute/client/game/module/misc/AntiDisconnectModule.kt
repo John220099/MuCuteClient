@@ -11,7 +11,7 @@ class AntiDisconnectModule : Module("AntiDisconnect", ModuleCategory.Misc) {
     private val BlockDisconnectPacket by boolValue("Block_DisconnectPacket", true)
     private val BlockTransferPacket by boolValue("Block_TransferPacket", false)
 
-    override fun beforePacketBound(interceptablePacket: InterceptablePacket): Boolean { 
+    override fun beforePacketBound(interceptablePacket: InterceptablePacket) Boolean { 
         if (!isEnabled) {
             return
         }
