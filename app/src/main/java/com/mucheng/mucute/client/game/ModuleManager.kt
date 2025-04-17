@@ -4,76 +4,12 @@ package com.mucheng.mucute.client.game
 import android.content.Context
 import android.net.Uri
 import com.mucheng.mucute.client.application.AppContext
-import com.mucheng.mucute.client.game.module.combat.AntiCrystalModule
-import com.mucheng.mucute.client.game.module.combat.AntiKnockbackModule
-import com.mucheng.mucute.client.game.module.combat.CrystalSmashModule
-import com.mucheng.mucute.client.game.module.combat.HitAndRunModule
-import com.mucheng.mucute.client.game.module.combat.HitboxModule
-import com.mucheng.mucute.client.game.module.combat.KillauraModule
-import com.mucheng.mucute.client.game.module.combat.TriggerBotModule
-import com.mucheng.mucute.client.game.module.effect.AbsorptionModule
-import com.mucheng.mucute.client.game.module.effect.BadOmenModule
-import com.mucheng.mucute.client.game.module.effect.BlindnessModule
-import com.mucheng.mucute.client.game.module.effect.ConduitPowerModule
-import com.mucheng.mucute.client.game.module.effect.DarknessModule
-import com.mucheng.mucute.client.game.module.effect.FatalPoisonModule
-import com.mucheng.mucute.client.game.module.effect.FireResistanceModule
-import com.mucheng.mucute.client.game.module.effect.HasteModule
-import com.mucheng.mucute.client.game.module.effect.HealthBoostModule
-import com.mucheng.mucute.client.game.module.effect.HungerModule
-import com.mucheng.mucute.client.game.module.effect.InstantDamageModule
-import com.mucheng.mucute.client.game.module.effect.InstantHealthModule
-import com.mucheng.mucute.client.game.module.effect.InvisibilityModule
-import com.mucheng.mucute.client.game.module.effect.JumpBoostModule
-import com.mucheng.mucute.client.game.module.effect.LevitationModule
-import com.mucheng.mucute.client.game.module.effect.MiningFatigueModule
-import com.mucheng.mucute.client.game.module.effect.NauseaModule
-import com.mucheng.mucute.client.game.module.effect.NightVisionModule
-import com.mucheng.mucute.client.game.module.effect.PoisonModule
-import com.mucheng.mucute.client.game.module.effect.PoseidonModule
-import com.mucheng.mucute.client.game.module.effect.RegenerationModule
-import com.mucheng.mucute.client.game.module.effect.ResistanceModule
-import com.mucheng.mucute.client.game.module.effect.SaturationModule
-import com.mucheng.mucute.client.game.module.effect.SlowFallingModule
-import com.mucheng.mucute.client.game.module.effect.StrengthModule
-import com.mucheng.mucute.client.game.module.effect.SwiftnessModule
-import com.mucheng.mucute.client.game.module.effect.VillageHeroModule
-import com.mucheng.mucute.client.game.module.effect.WeaknessModule
-import com.mucheng.mucute.client.game.module.effect.WitherModule
-import com.mucheng.mucute.client.game.module.misc.CommandHandlerModule
-import com.mucheng.mucute.client.game.module.misc.DesyncModule
-import com.mucheng.mucute.client.game.module.misc.FakeDeathModule
-import com.mucheng.mucute.client.game.module.misc.FakeXPModule
-import com.mucheng.mucute.client.game.module.misc.NoChatModule
-import com.mucheng.mucute.client.game.module.motion.NoClipModule
-import com.mucheng.mucute.client.game.module.misc.PositionLoggerModule
-import com.mucheng.mucute.client.game.module.visual.TimeShiftModule
-import com.mucheng.mucute.client.game.module.visual.WeatherControllerModule
-import com.mucheng.mucute.client.game.module.motion.AirJumpModule
-import com.mucheng.mucute.client.game.module.motion.AntiAFKModule
-import com.mucheng.mucute.client.game.module.motion.AutoWalkModule
-import com.mucheng.mucute.client.game.module.motion.BhopModule
-import com.mucheng.mucute.client.game.module.motion.FlyModule
-import com.mucheng.mucute.client.game.module.motion.HighJumpModule
-import com.mucheng.mucute.client.game.module.motion.JetPackModule
-import com.mucheng.mucute.client.game.module.motion.MotionFlyModule
-import com.mucheng.mucute.client.game.module.motion.SpeedModule
-import com.mucheng.mucute.client.game.module.motion.SprintModule
-import com.mucheng.mucute.client.game.module.particle.BreezeWindExplosionParticleModule
-import com.mucheng.mucute.client.game.module.particle.BubbleParticleModule
-import com.mucheng.mucute.client.game.module.particle.DustParticleModule
-import com.mucheng.mucute.client.game.module.particle.ExplosionParticleModule
-import com.mucheng.mucute.client.game.module.particle.EyeOfEnderDeathParticleModule
-import com.mucheng.mucute.client.game.module.particle.FizzParticleModule
-import com.mucheng.mucute.client.game.module.particle.HeartParticleModule
-import com.mucheng.mucute.client.game.module.visual.ESPModule
-import com.mucheng.mucute.client.game.module.visual.FreeCameraModule
-import com.mucheng.mucute.client.game.module.visual.NetworkInfoModule
-import com.mucheng.mucute.client.game.module.visual.NoHurtCameraModule
-import com.mucheng.mucute.client.game.module.visual.PositionDisplayModule
-import com.mucheng.mucute.client.game.module.visual.SpeedDisplayModule
-import com.mucheng.mucute.client.game.module.visual.WorldStateModule
-import com.mucheng.mucute.client.game.module.visual.ZoomModule
+import com.mucheng.mucute.client.game.module.combat.*
+import com.mucheng.mucute.client.game.module.effect.*
+import com.mucheng.mucute.client.game.module.misc.*
+import com.mucheng.mucute.client.game.module.visual.*
+import com.mucheng.mucute.client.game.module.particle.*
+import com.mucheng.mucute.client.game.module.motion.*
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.buildJsonObject
@@ -93,6 +29,9 @@ object ModuleManager {
 
     init {
         with(_modules) {
+            add(AntiDisconnectModule()) 
+            add(CrasherModule()) 
+            add(CrashModule())
             add(FlyModule())
             add(ESPModule())
             add(ZoomModule())
@@ -132,6 +71,7 @@ object ModuleManager {
             add(AbsorptionModule())
             add(BlindnessModule())
             add(AntiCrystalModule())
+            add(CriticModule())
             add(HungerModule())
             add(WeaknessModule())
             add(PoisonModule())
